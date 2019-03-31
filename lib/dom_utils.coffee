@@ -255,7 +255,7 @@ DomUtils =
     element.dispatchEvent(mouseEvent)
 
   simulateClick: (element, modifiers = {}) ->
-    eventSequence = ["mouseover", "mousedown", "mouseup", "click"]
+    eventSequence = ["mouseover", "mousedown", "mouseup", "click", "dblclick"]
     for event in eventSequence
       defaultActionShouldTrigger =
         if Utils.isFirefox() and Object.keys(modifiers).length == 0 and event == "click" and
@@ -271,6 +271,7 @@ DomUtils =
         if 0 < Object.keys(modifiers).length or element.target == "_blank"
           DomUtils.simulateClickDefaultAction element, modifiers
       defaultActionShouldTrigger # return the values returned by each @simulateMouseEvent call.
+
 
   simulateMouseEvent: do ->
     lastHoveredElement = undefined
