@@ -246,6 +246,14 @@ DomUtils =
           if element.selectionStart == 0 and element.selectionEnd == 0
             element.setSelectionRange element.value.length, element.value.length
 
+  simulateDoubleClick: (element, modifiers = {}) ->
+    mouseEvent = new MouseEvent('dblclick', {
+        'view': window,
+        'bubbles': true,
+        'cancelable': true
+    });
+    element.dispatchEvent(mouseEvent)
+
   simulateClick: (element, modifiers = {}) ->
     eventSequence = ["mouseover", "mousedown", "mouseup", "click"]
     for event in eventSequence

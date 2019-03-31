@@ -379,7 +379,7 @@ class LinkHintsMode
             window.focus()
             DomUtils.simulateSelect clickEl
           else
-            clickActivator = (modifiers) -> (link) -> DomUtils.simulateClick link, modifiers
+            clickActivator = (modifiers) -> (link) -> DomUtils.simulateDoubleClick link, modifiers
             linkActivator = @mode.linkActivator ? clickActivator @mode.clickModifiers
             # TODO: Are there any other input elements which should not receive focus?
             if clickEl.nodeName.toLowerCase() in ["input", "select"] and clickEl.type not in ["button", "submit"]
